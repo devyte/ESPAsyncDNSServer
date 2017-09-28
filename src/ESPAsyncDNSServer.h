@@ -47,6 +47,5 @@ class AsyncDNSServer
     void replyWithCustomCode(AsyncUDPPacket &packet);
 };
 
-extern AsyncDNSServer dnsServer;
 
 #endif

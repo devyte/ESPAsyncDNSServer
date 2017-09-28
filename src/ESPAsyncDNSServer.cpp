@@ -3,7 +3,6 @@
 #include <Arduino.h>
 
 
-AsyncDNSServer dnsServer;
 
 namespace
 {
