@@ -18,8 +18,8 @@ void setup() {
   // set which return code will be used for all other domains (e.g. sending
   // ServerFailure instead of NonExistentDomain will reduce number of queries
   // sent by clients)
-  // default is DNSReplyCode::NonExistentDomain
-  dnsServer.setErrorReplyCode(DNSReplyCode::ServerFailure);
+  // default is AsyncDNSReplyCode::NonExistentDomain
+  dnsServer.setErrorReplyCode(AsyncDNSReplyCode::ServerFailure);
 
   // start DNS server for a specific domain name
   dnsServer.start(DNS_PORT, "www.example.com", apIP);

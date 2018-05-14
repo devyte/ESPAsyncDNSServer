@@ -89,7 +89,7 @@ getDomainNameWithoutWwwPrefix(unsigned char *start)
 AsyncDNSServer::AsyncDNSServer()
 {
   _ttl = htonl(60);
-  _errorReplyCode = DNSReplyCode::NonExistentDomain;
+  _errorReplyCode = AsyncDNSReplyCode::NonExistentDomain;
 }
 
 bool 
@@ -117,7 +117,7 @@ AsyncDNSServer::start(const uint16_t port, const String &domainName,
 }
 
 void 
-AsyncDNSServer::setErrorReplyCode(const DNSReplyCode &replyCode)
+AsyncDNSServer::setErrorReplyCode(const AsyncDNSReplyCode &replyCode)
 {
   _errorReplyCode = replyCode;
 }
@@ -216,7 +216,7 @@ AsyncDNSServer::replyWithCustomCode(AsyncUDPPacket &packet)
   DNSHeader * _dnsHeader = (DNSHeader *)msg.data();
 
   _dnsHeader->QR = DNS_QR_RESPONSE;
-  _dnsHeader->RCode = (unsigned char)_errorReplyCode; //default is DNSReplyCode::NonExistentDomain
+  _dnsHeader->RCode = (unsigned char)_errorReplyCode; //default is AsyncDNSReplyCode::NonExistentDomain
   _dnsHeader->QDCount = 0;
 
   packet.send(msg);
