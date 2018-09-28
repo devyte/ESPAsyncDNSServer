@@ -7,7 +7,7 @@
 #define DNS_QR_RESPONSE 1
 #define DNS_OPCODE_QUERY 0
 
-enum class DNSReplyCode : unsigned char
+enum class AsyncDNSReplyCode : unsigned char
 {
   NoError = 0,
   FormError = 1,
@@ -24,7 +24,7 @@ class AsyncDNSServer
 {
   public:
     AsyncDNSServer();
-    void setErrorReplyCode(const DNSReplyCode &replyCode);
+    void setErrorReplyCode(const AsyncDNSReplyCode &replyCode);
     void setTTL(const uint32_t ttl);
 
     // Returns true if successful, false if there are no sockets available
@@ -40,7 +40,7 @@ class AsyncDNSServer
     String _domainName;
     unsigned char _resolvedIP[4];
     uint32_t _ttl;
-    DNSReplyCode _errorReplyCode;
+    AsyncDNSReplyCode _errorReplyCode;
 
     void processRequest(AsyncUDPPacket &packet);
     void replyWithIP(AsyncUDPPacket &packet);
