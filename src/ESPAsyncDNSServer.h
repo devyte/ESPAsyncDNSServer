@@ -2,6 +2,9 @@
 #define ESPAsyncDNSServer_h
 
 #ifdef ARDUINO_ARCH_ESP32
+#ifndef Stream_h
+#include <Stream.h>
+#endif
 #include <AsyncUDP.h>
 #else
 #include <ESPAsyncUDP.h>
