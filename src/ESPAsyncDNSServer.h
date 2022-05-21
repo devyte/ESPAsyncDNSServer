@@ -1,7 +1,14 @@
 #ifndef ESPAsyncDNSServer_h
 #define ESPAsyncDNSServer_h
 
+#ifdef ARDUINO_ARCH_ESP32
+#ifndef Stream_h
+#include <Stream.h>
+#endif
+#include <AsyncUDP.h>
+#else
 #include <ESPAsyncUDP.h>
+#endif
 
 #define DNS_QR_QUERY 0
 #define DNS_QR_RESPONSE 1
