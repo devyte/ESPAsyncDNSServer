@@ -50,8 +50,8 @@ class AsyncDNSServer
     AsyncDNSReplyCode _errorReplyCode;
 
     void processRequest(AsyncUDPPacket &packet);
-    void replyWithIP(AsyncUDPPacket &packet);
-    void replyWithCustomCode(AsyncUDPPacket &packet);
+    void replyWithIP(AsyncUDPPacket &packet, size_t &_qnameLength);
+    void replyWithCustomCode(AsyncUDPPacket &packet, size_t &_qnameLength);
 };
 
 
